@@ -1,0 +1,40 @@
+ALGORITHM chekpoint-searching
+VAR
+   i,n : INTEGER ;
+   arr , arr_res: ARRAY_OF INTEGER[10];
+
+BEGIN
+
+ FUNCTION insertionSort (arr[]:ARRAY_OF INTEGER[10],n:INTEGER) : ARRAY_OF INTEGER
+  { 
+    VAR
+    i,j,key: INTEGER;
+    BEGIN
+        FOR i FROM 1 TO i<n DO
+        {
+             key = arr[i];
+             j=i-1;
+             WHILE (j >= 0 && arr[j] > key) DO
+                {
+                    arr[j+1] = arr[j];
+                    j = j-1;
+                }
+            END_WHILE
+            arr[j+1] = key; 
+        } 
+          RETURN arr[] ;
+    END 
+  }
+
+    read(n);
+    FOR i FROM 1 TO n DO
+    {
+        read(arr[i]);
+    }
+    arr_res=insertionSort (arr[],n);
+    FOR i FROM 1 TO n DO
+    {
+        write(arr_res[i]);
+    }
+
+END
